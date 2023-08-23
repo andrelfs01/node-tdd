@@ -1,5 +1,6 @@
 const routes = require("express").Router();
 
+const SessionController = require('./controllers/SessionController');
 // const { User } = require('./models');
 
 // User.create({
@@ -8,6 +9,6 @@ const routes = require("express").Router();
 //     password_hash: "asdasdasd"
 // });
 
-
+routes.post('/sessions', SessionController.store)
 
 module.exports = routes;

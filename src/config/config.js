@@ -1,9 +1,14 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env'
+});
+
 module.exports = {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "estudo_js",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT || "postgres",
+    storage: './__tests__/database.sqlite',
     logging: false,
     define: {
       timestamps : true,
